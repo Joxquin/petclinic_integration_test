@@ -1,18 +1,13 @@
 package com.tecsup.petclinic.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-import java.util.Set;
-
-/**
- * 
- * @author jgomezm
- *
- */
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "owners")
 @Data
@@ -20,7 +15,7 @@ public class Owner {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -36,9 +31,4 @@ public class Owner {
 
 	@Column(name = "telephone")
 	private String telephone;
-
-//	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//	@ToString.Exclude
-//	// @EqualsAndHashCode.Exclude
-//	private Set<Pet> pets;
 }
